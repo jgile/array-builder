@@ -2,28 +2,15 @@
 
 namespace Jgile\ArrayBuilder;
 
-use JsonSerializable;
-
-class MergeValue
+final class MissingValue
 {
     /**
-     * The data to be merged.
+     * Determine if the object should be considered "missing".
      *
-     * @var array
+     * @return bool
      */
-    public $data;
-
-    /**
-     * Create new merge value instance.
-     *
-     * @param $data
-     */
-    public function __construct($data)
+    public function isMissing()
     {
-        if ($data instanceof JsonSerializable) {
-            $this->data = $data->jsonSerialize();
-        } else {
-            $this->data = $data;
-        }
+        return true;
     }
 }
